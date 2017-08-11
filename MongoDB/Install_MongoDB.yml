@@ -1,0 +1,3 @@
+--- # This yaml will install MongoDB as a standard alone server.
+
+- hosts: local
