@@ -1,0 +1,8 @@
+--- #this Playbook will read Vars from another yml file
+
+- hosts: dev
+  vars_files:
+    - vars.yml
+  tasks:
+  - name: Installing Lynx Pkg
+    yum: pkg=lynx state=installed update_cache=true

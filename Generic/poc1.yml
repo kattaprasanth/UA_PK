@@ -1,0 +1,9 @@
+--- # This Playbook we will be testing Vars with in the Playboo
+
+- hosts: dev
+  vars:
+    author: Prasanth Katta
+    date: 14-Aug-2017
+  tasks:
+  - name: Installing Lynx Pkg On Servers
+    yum: pkg=lynx state=installed update_cache=true

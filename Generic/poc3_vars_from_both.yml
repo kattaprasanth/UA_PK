@@ -1,0 +1,11 @@
+--- # Reading Vars from within yml and from another yml
+
+- hosts: dev
+  vars:
+    author: PK
+    date: 14-Aug-2017
+  vars_files:
+  - vars.yml
+  tasks:
+  - name: Installing Lynx Pkgs on Servers
+    yum: pkg=lynx state=installed update_cache=true
