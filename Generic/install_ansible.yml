@@ -1,0 +1,22 @@
+---
+
+- hosts: dev
+  user: prasanth
+  become: yes
+  connection: ssh
+  gather_facts: no
+  vars:
+    ansible_playbook_version: 0.1c
+  vars_files:
+   - conf/copyright.yml
+   - conf/apache_common.yml
+  vars_prompt:
+   - name: Web_Domain
+     prompt: Web Domain
+  tasks:
+   - name: Install Ansible On Dev
+     action: yum name=ansible state=installed
+     notify: Ansible Version
+  handlers:
+   - name: Ansible Version
+     shell: ansible --version
