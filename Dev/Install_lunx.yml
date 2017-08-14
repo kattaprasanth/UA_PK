@@ -1,0 +1,6 @@
+--- #This Playbook will install Lynx pkg on the server
+
+- hosts: dev
+  tasks:
+  - name: Installing Lynx Pkg on The Server!!
+    yum: pkg=lynx state=installed update_cache=true

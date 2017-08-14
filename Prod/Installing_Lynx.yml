@@ -1,0 +1,6 @@
+--- #This Playbook will install Lynx Pkg on Ubuntu Systems
+
+- hosts: prod
+  tasks:
+  - name: Installing Lynx Pkg on Ubuntu Prod Server
+    apt: pkg=lynx state=installed update_cache=true

@@ -1,0 +1,5 @@
+--- # This Playbook we use to install Ansible
+
+
+- hosts: {{ host_name }}
+   

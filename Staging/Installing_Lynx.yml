@@ -1,0 +1,6 @@
+--- #This play book will install Lynx Pkg
+
+- hosts: staging
+  tasks:
+  - name: Installing Lynx Pkg on Staging Nodes
+    yum: pkg=lynx state=installed update_cache=true
