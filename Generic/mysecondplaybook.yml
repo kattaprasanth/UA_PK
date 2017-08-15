@@ -22,7 +22,7 @@
     command: systemctl status nginx
     # Now we will capture the output to a variable
     register: results
-  - debug: vars=results
+  - debug: var=results
   - name: Installing Telnet on Server.
     yum: name=telnet state=latest
   - name: Installing Lynx Pkg
