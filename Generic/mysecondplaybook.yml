@@ -1,0 +1,34 @@
+--- # This Play book will do as mentioned in the below comments
+
+#connect to dev server
+#
+- hosts: dev
+  #use prasanth user for ssh
+  user: prasanth
+  #take sudo rights
+  become: yes
+  #gather facts no
+  gather_facts: no
+  #lets start the tasks from here
+  tasks:
+  - name: Logging the Play Book Start Time
+    raw: /usr/bin/date > /home/prasanth/playbook_start_time.log
+  - name: Installing Nginx Server
+    yum: name=nginx state=latest
+  - name: Start the Nginx Server
+    service: name=nginx state=restarted
+  - name: Verify The Nginx is Running or not
+    # Don't want to pull back the info of that server so using command
+    command: systemctl status nginx
+    # Now we will capture the output to a variable
+    register: results
+  - debug: vars=results
+  - name: Installing Telnet on Server.
+    yum: name=telnet state=latest
+  - name: Installing Lynx Pkg
+    yum: name=lynx state=latest
+  #logging all the required packages installed on the system
+  - name: Log all the Packages Installed on System
+    raw: yum list installed > /home/prasanth/playbook_installed_pkgs.log
+  - name: Playbook finished date/time stamp details.
+    raw: /usr/bin/date > /home/prasanth/playbook_end_time.log 
