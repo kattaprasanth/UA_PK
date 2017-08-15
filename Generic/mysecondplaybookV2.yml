@@ -1,0 +1,41 @@
+--- # This Play book will do as mentioned in the below comments
+#Optimizing the Playbooks as per new learnings
+#connect to dev server
+#
+- hosts: dev
+  #use prasanth user for ssh
+  user: prasanth
+  #take sudo rights
+  become: yes
+  #gather facts no
+  gather_facts: no
+  #lets start the tasks from here
+  tasks:
+  - name: Logging the Play Book Start Time
+    #Using command module to print the json out during the Playbooks run
+    command: /usr/bin/date
+    #capture the ouput to json to var
+    register: timestamp_start
+  - debug: var=timestamp_start
+  - name: Installing Nginx Server
+    yum: name=nginx state=latest
+    #calling handler for restart insted of a task to restart
+    notify: Restart Nginx
+  - name: Installing Telnet on Server.
+    yum: name=telnet state=latest
+  - name: Installing Lynx Pkg
+    yum: name=lynx state=latest
+    #logging all the required packages installed on the system
+  - name: Log all the Packages Installed on System
+    #capture the output to show packages in json
+    command: yum list installed
+    register: pkg_results
+  - debug: var=pkg_results
+  - name: Playbook finished date/time stamp details.
+    #capture the end time output to json
+    command: /usr/bin/date
+    register: end_time
+  - debug: var=end_time
+  handlers:
+  - name: Restart Nginx
+    service: name=nginx state=restarted
