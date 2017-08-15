@@ -1,0 +1,19 @@
+--- #using async to run installing parallel on multiple server with 10 sec wait time between them
+
+- host: staging
+  user: prasanth
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Installing Nginx server.
+    yum: name=nginx state=latest
+    # to run Nginx insatllation parallel on multiple nodes and wait for 300 millsec
+    async: 300
+    # to wait 10 sec to check the Installation finished on each server.
+    poll: 10
+    notify: Restart Nginx
+  handlers:
+  - name: Restart Nginx
+    service: name=nginx state=restarted
+
+    
