@@ -1,0 +1,11 @@
+--- #This yml is for lookup , to look for a variabile in files or from any env
+
+- hosts: local
+  user: prasanth
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - debug: msg="This is really Rock Star of 21th century -> {{ lookup('csvfile','PK file=look.csv delimiter=, default=NOMATCH') }}"
+  - debug: msg="Now We are reading Vars from ENV --> {{ lookup('env','PATH') }}"
+  - debug: msg="Readning from csv ==> {{ lookup('csvfile','Prasanth Kumar Katta file=look.csv delimiter=, default=NOMATCH') }}"

@@ -1,0 +1,9 @@
+---
+#Spaces can't be handled by lookups
+
+- hosts: local
+  user: prasanth
+  become: yes
+  connection: ssh
+  tasks:
+  - debug: msg="This Property is Read from the file -> {{ lookup('csvfile','PrasanthKatta file=look.csv delimiter=, default=NOMATCH') }}"
