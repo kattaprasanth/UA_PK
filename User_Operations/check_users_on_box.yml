@@ -1,0 +1,14 @@
+--- # This script will check the given user exist on server or not
+
+- hosts: dev
+  user: vagrant
+  become: no
+  gather_facts: no
+  vars:
+    user_name: vagrant
+  tasks:
+    - name: Checking the user
+      command: id -u {{ user_name }}
+      register: user_check_output
+      ignore_errors: yes
+    - debug: var=user_check_output
