@@ -1,0 +1,13 @@
+--- # This yml will create users based on below params
+
+- hosts: dev
+  user: vagrant
+  connection: ssh
+  become: yes
+  gather_facts: no
+  vars:
+   u_name: prasanth1
+  tasks:
+    - user:
+        name: "{{ u_name }}"
+        comment: "Prasanth Katta"
