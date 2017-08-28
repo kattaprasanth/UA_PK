@@ -6,7 +6,7 @@
   connection: ssh
   gather_facts: no
   vars:
-    - u_name : prasanth2
+    - u_name : prasanth3
   tasks:
   - name: Check The users {{ u_name }} Already exists on server
     tags:

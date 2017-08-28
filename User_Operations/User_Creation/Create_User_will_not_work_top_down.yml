@@ -1,0 +1,22 @@
+--- 
+
+- hosts: dev
+  user: vagrant
+  become: yes
+  connection: ssh
+  vars:
+    - u_name: prasanth1
+  tasks:
+  - name: Creating User {{ u_name }}
+    tags:
+      - Creating Users
+    user:
+      name: "{{ u_name }}"
+      comment: PK
+    when: not user_existence.stdout
+  - name: Check Users Existence
+    tags:
+      - User Existence
+    command: id -u {{ u_name }}
+    register: user_existence
+  - debug: var=user_existence
