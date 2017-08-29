@@ -1,0 +1,30 @@
+--- # This yml will create users based on below params
+
+- hosts: dev
+  user: vagrant
+  become: yes
+  connection: ssh
+  gather_facts: no
+  vars:
+    - u_name : prasanth3
+  tasks:
+  - name: Check The users {{ u_name }} Already exists on server
+    tags:
+      - Chek Users Already Exist or Not
+    command: id -u {{ u_name }}
+    register: check_user_exist
+    ignore_errors: true
+  - debug: var=check_user_exist
+  - name: Creating New User {{ u_name }}
+    tags:
+      - Creating new User {{ u_name }}
+    user:
+       name: "{{ u_name }}"
+       comment: PK
+    when: not check_user_exist.stdout
+  - name: Cheking User {{ u_name }} groups
+    tags:
+      - Checking Users Groups
+    command: groups {{ u_name }}
+    register: user_group_details
+  - debug: var=user_group_details.stdout
