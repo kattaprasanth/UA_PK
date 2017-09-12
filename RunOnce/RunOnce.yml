@@ -1,0 +1,16 @@
+--- # This will run only once when required lets say we have to run db chnages only once then we can go with this kind of approach
+
+# when we use run once then the ansible will run that particular task on the first host or on that particular host where runonce is specified
+#
+
+- hosts: local
+  user: prasanthkatta
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+   - name: Run the uptime command and log it
+     raw: /usr/bin/uptime >> /home/prasanthkatta/TestLogs/uptime.log
+   - name: list the var dir details
+     raw: ls -al /var >> /home/prasanthkatta/TestLogs/var_logs.log
+     run_once: true
