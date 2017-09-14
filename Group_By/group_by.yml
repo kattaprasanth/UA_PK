@@ -3,13 +3,27 @@
 # lets say if we need to do task based on os distributions
 #
 
-- hosts: local
-  user: prasanthkatta
-  become: yes
-  connection: ssh
-  gahther_facts: yes
+- name: YAML Using Group By for 2 diff linux flavours
+  hosts: all
+  gather_facts: yes
   tasks:
   - name: Collections the distribution details
     group_by: key={{ ansible_distribution }}
+  - debug: var=hostvars
+  - debug: var=hostvars[inventory_hostname]
+
+- name: Installing things based on OS Flavours
+  hosts: CentOS
+  become: yes
+  tasks:
+  - name: Installing telnet package
+    yum: pkg=telnet state=latest
+
+- name: Installing on Ubunut Flavours
+  hosts: Ubuntu
+  become: yes
+  tasks:
+  - name: Install Telnet on Ubuntu
+    apt: name=telnet state=latest
   
    
