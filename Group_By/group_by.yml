@@ -1,0 +1,15 @@
+--- # This Playbook will do the task based on group by parmas results
+
+# lets say if we need to do task based on os distributions
+#
+
+- hosts: local
+  user: prasanthkatta
+  become: yes
+  connection: ssh
+  gahther_facts: yes
+  tasks:
+  - name: Collections the distribution details
+    group_by: key={{ ansible_distribution }}
+  
+   

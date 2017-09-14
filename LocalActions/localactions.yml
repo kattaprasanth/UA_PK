@@ -1,0 +1,14 @@
+--- # This paly will do LocalActions 
+
+# To access the server with the user running the Play
+#
+
+- hosts: 127.0.0.1
+  user: prasanthkatta
+  become: yes
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: installing telnet on the server
+    yum: pkg=telnet state=latest
+  

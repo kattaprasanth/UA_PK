@@ -11,4 +11,5 @@
       command: id -u {{ user_name }}
       register: user_check_output
       ignore_errors: yes
-    - debug: var=user_check_output
+    - debug:
+        var: user_check_output.stdout
