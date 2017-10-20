@@ -1,0 +1,52 @@
+# Rsync Artifactory
+
+https://www.jfrog.com/confluence/display/RTF/Clustering+Artifactory
+
+OverView:
+Please investigate ability to sync artifacts from EPAM Atrifactory to FGL Artifactory. 
+ If we have no standard solutions, create jenkins job to perform this operation.
+
+ Check for write/delete access for project user (ecommerce) in FGL Artifactory. You could use curl for such tests.
+ Source of artifacts is http://artifactory.ctco-fgls.projects.epam.com/artifactory/CTCO-AECM-Releases/com/fglsports/
+ Destination https://artifactory.fglsports.com/artifactory/simple/FGL_ARTIFACTS_FROM_EPAM/
+
+ 
+ Usage: GET /api/storage/{repoKey}/{itemPath}?permissions
+ AKCp2WXr5P1F3BBDFyohp5ah2enC1c14s8Nae3n2525XBhjgyFCWviF7XnK3Bort7EPvjuVT2
+ 
+curl -u ctco-fgls:ctco-fgls -X GET http://artifactory.ctco-fgls.projects.epam.com/artifactory/webapp/#/artifacts/browse/tree/General/CTCO-AECM-Releases/com/fglsports?permissions
+curl -u ctco-fgls:ctco-fgls -X GET http://artifactory.ctco-fgls.projects.epam.com/artifactory/api/storage/AKCp2WXr5P1F3BBDFyohp5ah2enC1c14s8Nae3n2525XBhjgyFCWviF7XnK3Bort7EPvjuVT2/CTCO-AECM-Releases/com/fglsports?permissions
+
+source :
+User Name: ctco-fgls
+pass: ctco-fgls
+http://artifactory.ctco-fgls.projects.epam.com/artifactory/webapp/#/artifacts/browse/tree/General/CTCO-AECM-Releases/com/fglsports
+
+AKCp2WXr5P1F3BBDFyohp5ah2enC1c14s8Nae3n2525XBhjgyFCWviF7XnK3Bort7EPvjuVT2
+AP9RZmVrHGK7zxbkL99Cwm9VGTG
+
+
+
+logic : 3 Epam pushes artifact and deletes outdated, FGL provide more rights for it.
+
+Destination:
+User Name: ecommerce
+https://ecommerce:{DESede}3NFMG8xHcjxxsMW330nUFg==@artifactory.fglsports.com/artifactory
+
+FGL_ARTIFACTS_FROM_EPAM
+https://artifactory.fglsports.com/artifactory/simple/FGL_ARTIFACTS_FROM_EPAM/
+
+
+
+Phase1:
+
+curl --user user:pass --cookie-jar ./somefile https://xyz.com/a
+
+curl --user test:test123 --cookie-jar ./credentials_cookies http://35.198.202.31:8081/artifactory/webapp/#/artifacts/browse/tree/General/PrasanthKatta
+
+curl --user test:test123 --cookie-jar ./credentials_cookies http://35.198.202.31:8081/artifactory/webapp/#/artifacts/browse/tree/EffectivePermission/PrasanthKatta
+
+
+curl --user test:test123 --cookie-jar ./credentials_cookies http://35.198.202.31:8081/artifactory/ui/artifactpermissions?direction=&orderBy=principal&path=&repoKey=PrasanthKatta
+
+working -> curl --user test:test123 --cookie-jar ./credentials_cookies http://35.198.202.31:8081/artifactory/ui/artifactpermissions?repoKey=PrasanthKatta

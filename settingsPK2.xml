@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <servers>
+    <server>
+      <id>artifactory_pk</id>
+      <username>test</username>
+      <password>test123</password>
+     </server>
+
+  </servers>
+
+
+  <profiles>
+
+    <profile>
+      <id>pk_artifactory</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>artifactory_pk</id>
+          <url>http://35.187.251.202:8081/artifactory/test2</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+
+ </profiles>
+
+    <mirrors>
+        <mirror>
+            <mirrorOf>*</mirrorOf>
+            <name>Mirror of all repositories</name>
+            <url>http://35.187.251.202:8081/artifactory/test1/</url>
+            <id>artifactory_pk</id>
+        </mirror>
+    </mirrors>
+
+ <activeProfiles>
+  <activeProfile>pk_artifactory</activeProfile>
+</activeProfiles>
+</settings>
+
+
+
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>artifactory1-releases</name>
+        <url>http://35.187.251.202:8081/artifactory/test2</url>
+    </repository>
+</distributionManagement>

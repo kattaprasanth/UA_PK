@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+<localRepository>/storage/ctco-fgls/repository</localRepository>
+
+  <servers>
+
+    <server>
+      <id>artifactory</id>
+      <username>ctco-fgls</username>
+      <password>ctco-fgls</password>
+    </server>
+
+    <server>
+      <id>artifactoryi_DOM2</id>
+      <username>ctco-dom2</username>
+      <password>ctco-dom2</password>
+    </server>
+
+    <server>
+      <id>tomcatserver</id>
+      <username>admin</username>
+      <password>admin</password>
+    </server>
+
+    <server>
+      <id>artifactory-ATMO</id>
+      <username>ctco-aecm</username>
+      <password>ctco-aecm</password>
+     </server>
+
+  </servers>
+
+
+  <!--
+   <mirrors>
+    <mirror>
+      <id>artifactory</id>
+      <name>EPAM Artifactory</name>
+      <url>http://artifactory.kyiv.epam.com/artifactory/CTCO-DOM2-All</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+-->
+
+  <profiles>
+
+    <profile>
+      <id>epam-artifactory</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>artifactory</id>
+          <url>http://artifactory.kyiv.epam.com/artifactory/CTCO-FGLS-All</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>artifactory</id>
+          <url>http://artifactory.kyiv.epam.com/artifactory/CTCO-FGLS-All</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <!-- PROFILE FOR STABLE BUILDS -->
+    <profile>
+      <id>epam-artifactory-stable</id>
+     <activation>
+       <activeByDefault>false</activeByDefault>
+     </activation>
+     <repositories>
+       <repository>
+         <id>artifactory</id>
+         <url>http://artifactory.kyiv.epam.com/artifactory/CTCO-FGLS-All</url>
+         <releases>
+           <enabled>true</enabled>
+         </releases>
+         <snapshots>
+           <enabled>true</enabled>
+           <updatePolicy>always</updatePolicy>
+         </snapshots>
+       </repository>
+     </repositories>
+     <pluginRepositories>
+       <pluginRepository>
+         <id>artifactory</id>
+         <url>http://artifactory.kyiv.epam.com/artifactory/CTCO-FGLS-All</url>
+         <snapshots>
+           <enabled>true</enabled>
+         </snapshots>
+         <releases>
+           <enabled>true</enabled>
+         </releases>
+       </pluginRepository>
+     </pluginRepositories>
+   </profile>
+
+ </profiles>
+
+    <mirrors>
+        <mirror>
+            <mirrorOf>*</mirrorOf>
+            <name>Mirror of all repositories</name>
+            <url>http://artifactory.kyiv.epam.com/artifactory/CTCO-AECM-All/</url>
+            <id>artifactory-ATMO</id>
+        </mirror>
+        <mirror>
+            <mirrorOf>*</mirrorOf>
+            <name>Mirror of all repositories</name>
+            <url>http://artifactory.epam.com/artifactory/CTCO-FECM-All</url>
+            <id>artifactory</id>
+        </mirror>
+    </mirrors>
+
+ <activeProfiles>
+  <activeProfile>epam-artifactory</activeProfile>
+</activeProfiles>
+</settings>
