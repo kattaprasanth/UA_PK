@@ -1,0 +1,1 @@
+ansible centos -s -m command -a "tail -n 10 /var/log/yum.log"
