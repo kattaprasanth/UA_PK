@@ -1,0 +1,7 @@
+
+
+ansible all -m command -a "mkdir -p ~/project/Ansible"
+
+ansible centos -m command -a "yum list installed"
+
+ansible centos -m command -a "yum list installed|grep lynx"

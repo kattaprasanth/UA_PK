@@ -1,0 +1,4 @@
+
+ansible all -m setup
+
+ansible all -m setup -a 'filter=ansible_all_ipv4_addresses'

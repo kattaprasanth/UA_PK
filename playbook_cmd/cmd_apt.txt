@@ -1,0 +1,2 @@
+
+ansible ubuntu -s -m apt -a "pkg=git state=latest update_cache=true"

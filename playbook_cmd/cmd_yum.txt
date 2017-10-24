@@ -1,0 +1,6 @@
+
+ansible centos -s -m yum -a "pkg=git state=latest update_cache=true"
+
+# Below list need yum-utils to be installed first
+
+ansible local -m yum -a "list=lynx"
