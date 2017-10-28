@@ -1,0 +1,29 @@
+---
+
+- hosts: node1
+  user: prasanth
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Install Lynx Pkg
+    yum: name=lynx state=installed update_cache=true
+    register: lynx_out
+  - debug: var=lynx_out
+  - name: check yum list for Telnet
+    yum: list=telnet
+    register: telnet_out
+  - debug: var=telnet_out
+  - name: Determine whether Telnet is installed or not
+    yum: name=telnet state=present update_cache=true
+    register: tel_out
+  - debug: var=tel_out
+
+- hosts: node2
+  user: prasanth
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Query For Lynx pkg installed or not
+    yum: pkg=lynx state=present update_cache=true
+  - name: Install Telnet PKG
+    yum: pkg=telnet state=installed update_cache=true

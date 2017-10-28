@@ -1,0 +1,8 @@
+--- # My First Play Book test
+
+- hosts: local
+  user: prasanth
+  connection: ssh
+  become: yes
+  gather_facts: no
+

@@ -1,0 +1,4 @@
+
+ansible local -m shell -a "yum list installed|grep lynx"
+
+ansible local -s -m shell -a "tail -n 10 /var/log/yum.log"
