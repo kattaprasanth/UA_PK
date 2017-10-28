@@ -5,4 +5,9 @@
   connection: ssh
   become: yes
   gather_facts: no
+  vars:
+     playbook_version: 1.0
+  vars_files:
+     - conf/copyrights.yml
+     - conf/webdefaults.yml
 
