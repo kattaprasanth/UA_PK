@@ -1,0 +1,23 @@
+--- # This Playbook will promet for the pkg name to be installed 
+
+- hosts: node2
+  user: prasanth
+  connection: ssh
+  become: yes
+  gather_facts: no
+  vars:
+    playbook_version: PROMPT-1.0
+  vars_files:
+    - conf/copyrights.yml
+    - conf/webdefaults.yml
+  vars_prompt:
+  - name: pkg_name
+    prompt: which pakage do you want to install ?
+    default: telnet
+    # Private no will display what you type for the pkg input
+    private: no
+    # Private yes will not display what you type for the pkg input 
+    #private: yes
+  tasks:
+  - name: Installing the given package ==> {{ pkg_name }}
+    yum: name={{ pkg_name }} state=latest
