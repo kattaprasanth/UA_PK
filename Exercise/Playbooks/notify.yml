@@ -1,0 +1,14 @@
+--- # This playbook will explain the notify concept
+
+- hosts: node2
+  user: prasanth
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Install Apache Pkg
+    action: yum name=httpd state=installed
+    notify: Restart HTTPD
+  handlers:
+  - name: Restart HTTPD
+    action: service name=httpd state=restarted
