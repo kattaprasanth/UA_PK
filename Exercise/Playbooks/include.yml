@@ -1,0 +1,19 @@
+--- # This play book used include module to call some other playbook to do the required task
+
+- hosts: node2
+  user: prasanth
+  connection: ssh
+  become: yes
+  gather_facts: no
+  vars:
+    playbook_version: INCLUDES-1.0
+  vars_files:
+    - conf/copyrights.yml
+    - conf/webdefaults.yml
+  tasks:
+  # include module is depracted and we have below replace for it.
+  # use import_rasks for static inclusions
+  # use include_tasks for dynamic inclusions
+  - import_tasks: include_plays/packages.yml
+  - name: verifying whether telnet package is installed or not
+    raw: yum list installed|grep telnet >> /home/prasanth/pkgs.log

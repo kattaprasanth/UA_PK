@@ -1,0 +1,5 @@
+- name: Install Telnet Package
+  yum: name=telnet state=latest
+
+- name: Install Lynx package
+  yum: name=lynx state=latest
