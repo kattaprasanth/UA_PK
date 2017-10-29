@@ -1,6 +1,6 @@
 --- # My First Play Book test
 
-- hosts: local
+- hosts: node2
   user: prasanth
   connection: ssh
   become: yes
@@ -10,4 +10,12 @@
   vars_files:
      - conf/copyrights.yml
      - conf/webdefaults.yml
-
+  tasks:
+  - name: Installing Apache PKG
+    action: yum name=httpd state=installed
+  - name: Query to check lynx installed or not
+    action: yum name=lynx state=present
+  - name: Verify whether Apache installed or not
+    action: yum name=httpd state=present
+  - name: Installed lynx pkg
+    action: yum name=lynx state=installed
