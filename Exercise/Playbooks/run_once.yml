@@ -1,0 +1,18 @@
+--- # This Play book will show you how to use runonce module
+
+- hosts: all
+  user: prasanth
+  connection: ssh
+  become: yes
+  gather_facts: no
+  vars:
+   playbook_version: RunOnce-1.0
+  vars_files:
+   - conf/copyrights.yml
+   - conf/webdefaults.yml
+  tasks:
+  - name: Uptime from remote machine -> {{ hosts }}
+    raw: uptime > /home/prasanth/uptime.log
+  - name: list var dir details
+    raw: ls -al /var >> /home/prasanth/dir.list
+    run_once: true
