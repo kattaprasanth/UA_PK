@@ -5,6 +5,12 @@
 # ansible-playbook tags.yml --tags "Packages"
 # ansible-playbook tags.yml --tags "verify_pkgs"
 
+# Also we can skip some tags and run the rest of the tags as show below
+# ansible-playbook tags.yml --skip-tags "Packages"
+#
+# To run a tag always without fail
+# in the play book when defining tags: - always
+
 - hosts: node2
   user: prasanth
   become: yes
