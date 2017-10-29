@@ -1,0 +1,27 @@
+--- # this play book will show you how to use until module
+
+# until module will wait for some taks to be finished
+# lets say if we want to wait till the apache start then we cna use until
+#
+- hosts: node2
+  user: prasanth
+  connection: ssh
+  become: yes
+  gather_facts: no
+  vars:
+    playbook_version: UNTILL-1.0
+  vars_files:
+    - conf/copyrights.yml
+    - conf/webdefaults.yml
+  tasks:
+  - name: Installing Apache
+    yum: pkg=httpd state=latest
+  - name: Verifying service status
+    shell: systemctl status httpd
+    register: results
+    # here we are using until so the this will wait until if find below give string
+    until: results.stdout.find("active (running)") != -1
+    # retries means it will retries for 5 time
+    retries: 5
+    # it will delay each retries with 5 secs
+    delay: 5
