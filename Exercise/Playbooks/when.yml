@@ -14,9 +14,9 @@
    - conf/copyrights.yml
    - conf/webdefaults.yml
   tasks:
-  - name: Installe Apache package on {{ ansible_os_family }} 
+  - name: Installe Apache package on RedHat 
     command: yum -y install httpd
     when: ansible_os_family == 'RedHat' 
-  - name: Installe Apache pkg on {{ ansible_os_family }}
+  - name: Installe Apache pkg on Ubuntu
     command: apt-get -y install apache2
     when: ansible_os_family == 'Debian'
