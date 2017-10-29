@@ -25,3 +25,4 @@
     retries: 5
     # it will delay each retries with 5 secs
     delay: 5
+  - debug: var=results
