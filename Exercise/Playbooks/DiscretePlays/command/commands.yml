@@ -1,0 +1,2 @@
+- name: Verifying lynx is installed or not
+  raw: yum list installed|grep lynx >> /home/prasanth/pkgs.log
