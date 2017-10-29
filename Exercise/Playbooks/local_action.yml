@@ -1,0 +1,10 @@
+--- # This play book will show you how to use localaction 
+
+- hosts: 127.0.0.1
+  user: prasanth
+  become: yes
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: install telnet
+    yum: pkg=telnet state=present
