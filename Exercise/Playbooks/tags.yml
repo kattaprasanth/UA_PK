@@ -1,0 +1,32 @@
+--- # This playbook will show you how to use tags with plays
+
+# when tags are definded in the playbook
+# then we can run particular task from the cmd
+# ansible-playbook tags.yml --tags "Packages"
+# ansible-playbook tags.yml --tags "verify_pkgs"
+
+- hosts: node2
+  user: prasanth
+  become: yes
+  connection: ssh
+  gather_facts: no
+  vars:
+    playbook_version: TAGS-1.0
+  vars_files:
+   - conf/copyrights.yml
+   - conf/webdefaults.yml
+  tasks:
+  - name: Installe Packages
+    yum: name={{ item }} state=latest
+    with_items:
+     - telnet
+     - lynx
+    tags:
+      - Packages
+  - name: Verify the installations
+    raw: yum list installed| grep {{ item }} >> /home/prasanth/pkgs.log
+    with_items:
+     - telnet
+     - lynx
+    tags:
+     - verify_pkgs 
