@@ -1,0 +1,14 @@
+--- # Play book using lookups module to search variables and file
+
+- hosts: local
+  user: prasanth
+  become: yes
+  gather_facts: no
+  connection: ssh
+  vars:
+   playbook_name: looksup_1.0
+  vars_files:
+   - conf/copyrights.yml
+   - conf/webdefaults.yml
+  tasks:
+  - debug: msg="{{ lookup('env','HOME') }} is this the current user home path ?"
