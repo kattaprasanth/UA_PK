@@ -6,7 +6,7 @@ echo "$commit_name"
 
 echo "Adding latest changed files to git"
 
-git add *
+git add -A
 
 echo "Adding Commit Messages to the changes"
 
