@@ -1,0 +1,22 @@
+--- # Play book will describe about the conditionals usage
+
+# This Play book will install apache pkg
+# based on the os type by gathering the fact
+
+- hosts: node2,node3
+  user: prasanth
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  vars:
+   playbook_version: 1.0a
+  vars_files:
+   - conf/copyrights.yml
+   - conf/webdefaults.yml
+  tasks:
+  - name: Installe Apache package on {{ ansible_os_family }} 
+    command: yum -y install httpd
+    when: ansible_os_family == 'RedHat' 
+  - name: Installe Apache pkg on {{ ansible_os_family }}
+    command: apt-get -y install apache2
+    when: ansible_os_family == 'Debian'
