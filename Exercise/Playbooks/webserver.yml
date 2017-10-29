@@ -1,0 +1,33 @@
+--- # This play book will do below outlined
+
+- hosts: node2
+  #- Uses SSH
+  connection: ssh
+  #- Logs in to the remote system as 'test' user
+  user: prasanth
+  #- Connects to web servers
+  #- The playbook runs as 'sudo'
+  become: yes
+  tasks:
+  #- Indicate to capture a pre-task timestamp
+  - name: Start Time Stamp
+    raw: date > /home/prasanth/start_time.log
+  #- Install the apache web server, telnet client and lynx web browser
+  - name: Installed Pkg
+    yum: pkg={{ item }} state=latest
+    with_items:
+    - httpd
+    - telnet
+    - lynx
+    #- Capture a log of all installed packages on the system
+    register: results
+  - debug: var=results
+  - name: capturing the log for installed once
+    raw: yum list installed|grep {{ item }} >> /home/prasanth/pkgs.log
+    with_items:
+     - httpd
+     - telnet
+     - lynx
+  #- Indicate to capture a post-task timestamp
+  - name: End Time
+    raw: date > /home/prasanth/end_time.log

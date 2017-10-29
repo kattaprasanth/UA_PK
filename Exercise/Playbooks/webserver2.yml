@@ -1,0 +1,31 @@
+---
+
+- hosts: node2
+  user: prasanth
+  connection: ssh
+  become: yes
+  gather_facts: no
+  vars:
+    playbook_version: WEBSERVER-1.0
+  vars_files:
+    - conf/copyrights.yml
+    - conf/webdefaults.yml
+  tasks:
+  - name: Start Time
+    raw: /usr/bin/date > /home/prasanth/start_time.log
+  - name: Install httpd
+    yum: pkg=httpd state=latest
+  - name: Restart httpd
+    service: name=httpd state=restarted
+  - name: Verify httpd status
+    command: systemctl status httpd
+    register: results
+  - debug: var=results
+  - name: install lynx
+    yum: pkg=lynx state=latest
+  - name: install telnet
+    yum: pkg=telnet state=latest
+  - name: capture log of installation
+    raw: yum list installed > /home/prasanth/installed.log
+  - name: End time
+    raw: /usr/bin/date > /home/prasanth/end_time.log

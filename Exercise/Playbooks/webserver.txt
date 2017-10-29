@@ -1,0 +1,8 @@
+- Uses SSH
+- Logs in to the remote system as 'test' user
+- Connects to web servers
+- The playbook runs as 'sudo'
+- Indicate to capture a pre-task timestamp
+- Install the apache web server, telnet client and lynx web browser
+- Capture a log of all installed packages on the system
+- Indicate to capture a post-task timestamp
