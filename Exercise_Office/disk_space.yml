@@ -1,0 +1,14 @@
+--- # disk space
+
+
+- hosts: dev
+  user: prasanth_ansible
+  connection: ssh
+  gather_facts: no
+  become: yes
+  tasks:
+  - name: cheking disk space
+    command: "df -h"
+    register: output
+  - debug: var=output['stdout_lines']
+    when: output['stdout_lines'] != ""
