@@ -1,0 +1,17 @@
+# Adhoc Commands for ansible
+
+ansible all --list-host
+
+ansible all -m setup
+
+ansible all -m yum -a "pkg=telnet state=latest"
+
+ansible all -m yum -a "pkg=httpd state=latest update_cache=true"
+
+ansible all -m shell -a "tail -n 10 /var/log/syslog.log"
+
+ansible all -m command -a "date"
+
+ansible all -m action -a "yum name=telnet state=present"
+
+ansible all -m command -a "yum list installed"
