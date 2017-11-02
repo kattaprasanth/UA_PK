@@ -1,0 +1,10 @@
+--- # Move file from cc to nodes
+
+- hosts: dev
+  user: prasanth_ansible
+  become: yes
+  gather_facts: no
+  connection: ssh
+  tasks:
+  - name: Copy File to Remote Nodes
+    copy: src="/home/prasanth_ansible/project/Ansible/Exercise_Office/adhoc_commands.txt" dest="/home/prasanth/" 
