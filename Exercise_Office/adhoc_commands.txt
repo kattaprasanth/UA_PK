@@ -15,3 +15,5 @@ ansible all -m command -a "date"
 ansible all -m action -a "yum name=telnet state=present"
 
 ansible all -m command -a "yum list installed"
+
+ansible all -m action -a "yum update"

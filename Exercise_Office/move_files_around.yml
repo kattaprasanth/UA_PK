@@ -7,4 +7,14 @@
   connection: ssh
   tasks:
   - name: Copy File to Remote Nodes
-    copy: src="/home/prasanth_ansible/project/Ansible/Exercise_Office/adhoc_commands.txt" dest="/home/prasanth/" 
+    copy: 
+      src: "/home/prasanth_ansible/project/Ansible/Exercise_Office/adhoc_commands.txt"
+      dest: "/home/prasanth_ansible/"
+    tags:
+    - onlyfile
+  - name: Copy Dirs to Remove Node
+    copy:
+      src: "/home/prasanth_ansible/project/Ansible/Exercise_Office"
+      dest: "/home/prasanth_ansible/"
+    tags:
+    - onlydir 
