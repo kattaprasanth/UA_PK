@@ -1,0 +1,6 @@
+---
+
+- name: Started Installation Process for Nginx.
+  hosts: dev
+  become: yes
+  
