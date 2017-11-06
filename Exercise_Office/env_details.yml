@@ -1,0 +1,13 @@
+---
+
+- hosts: node1
+  user: prasanth_ansible
+  gather_facts: yes
+  connection: ssh
+  become: yes
+  tasks:
+  - debug: var=hostvars
+  - name: collect system env varis
+    command: echo "$HOME"
+    register: res
+  - debug: var=res

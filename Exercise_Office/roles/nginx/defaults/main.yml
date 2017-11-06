@@ -1,6 +1,2 @@
 ---
-
-- name: Started Installation Process for Nginx.
-  hosts: dev
-  become: yes
-  
+nginx_version: 1.10.2-2   

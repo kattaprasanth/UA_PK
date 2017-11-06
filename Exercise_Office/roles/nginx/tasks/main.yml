@@ -1,0 +1,7 @@
+---
+
+- name: Install Nginx
+  yum: pkg=nginx state=present update_cache=yes
+  register: result
+  notify: Restart Nginx
+- debug: var=result
