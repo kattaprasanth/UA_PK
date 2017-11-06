@@ -1,0 +1,11 @@
+---
+
+- hosts: node1
+  user: prasanth_ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  roles:
+  - nginx
+  - tomcat
+  - rabbitmq
