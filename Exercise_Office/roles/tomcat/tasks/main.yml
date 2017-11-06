@@ -1,0 +1,7 @@
+---
+
+- name: Install Application servrr ApacheTomcat
+  yum: pkg=tomcat state=present update_cache=yes
+  register: tomcat_result
+  notify: Restart Tomcat
+- debug: var=tomcat_result

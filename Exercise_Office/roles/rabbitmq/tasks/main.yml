@@ -1,0 +1,7 @@
+---
+
+- name: install Rabbit Mq Server
+  yum: pkg=rabbitmq-server state=present update_cache=yes
+  notify: Restart MQ
+  register: mq_results
+- debug: var=mq_results
