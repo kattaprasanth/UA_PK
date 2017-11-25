@@ -1,0 +1,53 @@
+--- # Outlined Playbook
+#
+#web server
+#
+- hosts: node2
+#test user
+  user: prasanth
+#
+#sudo rights
+  become: yes
+  gather_facts: no
+#gather date and time using raw command first and then use shell command during optimization
+  tasks:
+  - name: log the start time
+    tags: start_time
+    shell: /usr/bin/date
+    register: start_time
+  - debug: var=start_time
+#install the web server
+  - name: Install Nginx server
+    tags: nginx
+    yum: pkg=nginx state=latest
+    notify: Restart Nginx
+#verify the web server running or not
+  - name: verify Nginx is running or not
+    tags: nginx_status
+    command: systemctl status nginx
+    register: nginx_status
+    ignore_errors: yes
+  - debug: var=nginx_status
+#
+#install client softwares telnet and lynx in optimized way
+#
+  - name: Install client softwares {{ item }}
+    yum: pkg={{ item }} state=latest
+    with_items:
+    - telnet
+    - lynx
+#log all the packages installed on the system
+  - name: Log the installed pkgs
+    shell: "yum list installed|grep nginx"
+    register: pkg_details
+  - debug: var=pkg_details
+#log date time for the playbook at the end
+  - name: Log the end time
+    shell: /usr/bin/date
+    register: end_time
+  - debug: var=end_time
+#start the web server using handler
+#
+  handlers:
+  - name: Restart Nginx
+    service: name=nginx state=restarted
