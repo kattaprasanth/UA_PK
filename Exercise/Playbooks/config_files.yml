@@ -1,0 +1,16 @@
+--- # Playbook to share config files
+
+- hosts: staging
+  user: prasanth
+  connection: ssh
+  become: yes
+  gather_facts: no
+  vars:
+   Aname: Prasanth Katta
+   UserName: PK
+   Pwd: Great123
+   connection_Type: SFTP
+   Distribution: Linux
+  tasks:
+  - name: Installing the config files to RH
+    template: src=files/test.conf dest=/home/prasanth owner=prasanth mode=750 group=prasanth
