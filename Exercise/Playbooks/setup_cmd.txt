@@ -1,0 +1,19 @@
+ansible all -m setup -a"filter=ansible*"
+
+ansible all -m setup -a"filter=ansible_archite*"
+
+ansible all -m setup -a"filter=ansible_distribution*"
+
+ansible all -m setup -a"filer=ansible_dist*"
+
+ansible all -m setup -a"filter=ansible_domain"
+
+ansible all -m setup -a"filter=ansible_fqdm*"
+
+ansible all -m setup -a"filter=ansible_kernal*"
+
+ansible all -m setup -a"filter=ansible_memtotal_mb"
+
+ansible all -m setup -a"filter=absible_proc*"
+
+ansible all -m setup -a"filter=ansible_virtulization*"

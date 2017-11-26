@@ -1,0 +1,11 @@
+--- # Using YUM module
+
+
+- hosts: node2
+  user: prasanth
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Update all packages to latest
+    action: yum name=* state=latest

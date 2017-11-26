@@ -1,0 +1,20 @@
+--- # Using Pause module we can pasue the playbook for the required amount of time.
+
+- hosts: node2
+  user: prasanth
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Install Nginx
+    action: yum name=nginx state=latest
+  - name: Pausing
+    pause:
+      seconds: 30
+  - name: Install Telnet
+    action: yum name=telnet state=latest
+  - name: Pausing again
+    pause:
+      prompt: press enter to continue
+  - name: Install Lynx
+    action: yum name=lynx state=latest

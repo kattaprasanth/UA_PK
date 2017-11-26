@@ -1,0 +1,14 @@
+--- # Using Apt Module
+
+- hosts: node3
+  user: prasanth
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Install Apache package
+    apt: name=apache2 state=present
+  - name: Remove Apache
+    apt: name=apache2 state=absent
+  - name: Update System
+    apt: update_cache=yes
