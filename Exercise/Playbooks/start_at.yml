@@ -1,6 +1,7 @@
 --- # Using Start At argument will run from that task till the end of the playbook
 
 # ansible-playbook start_at.yml --start-at-task='list home' this will start at 'list home' if you give 'lynx' then it will start from there till the end
+#ansible-playbook startat.yml --start-at="Install Lynx"
 - hosts: node2
   user: prasanth
   become: yes
