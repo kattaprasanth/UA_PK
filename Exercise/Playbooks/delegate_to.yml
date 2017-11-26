@@ -1,0 +1,17 @@
+--- # This playbook will use delegate_to module and it will delegate that task to that particular host
+
+# lets say we want to perform some task on some server before doing any deploymnets then we can use delegate_to
+#
+
+- hosts: 127.0.0.1
+  user: prasanth
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  #- name: Delegate This task to local hots
+  #  command: ping -c 4 kattaprasanth2.mylabserver.com > /home/prasanth/ping.out
+  #  delegate_to: 127.0.0.1
+  - name: Install Telnet
+    yum: pkg=telnet state=latest
+    delegate_to: 127.0.0.1
