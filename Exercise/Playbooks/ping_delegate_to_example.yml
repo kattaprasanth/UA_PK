@@ -1,0 +1,16 @@
+--- # delegate to is used when we want to run some script locally instead of copying them to remote server
+
+# example if we want to remote some node from the cluster from cs and also installed or do some operations on other server
+#
+
+- hosts: node2
+  user: prasanth
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Ping Remote Machine from local kattaprasanth3
+    command: ping -c 4 kattaprasanth3.mylabserver.com
+    register: result
+    delegate_to: 127.0.0.1
+  - debug: var=result
