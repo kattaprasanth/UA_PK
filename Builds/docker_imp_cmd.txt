@@ -184,3 +184,26 @@
   302  docker pull kattaprasanth/my_centos
   303  docker images
   305  history|grep docker > docker_imp_cmd.txt 
+  307  git commit -m "docker"
+  310  docker images
+  311  docker rmi centos/apache:v2
+  312  docker ps -a
+  313  docker rm amazingrename
+  315  docker ps -a
+  316  docker rm `docker ps -q -q`
+  318  docker ps
+  319  docker ps -a
+  320  docker rm `docker ps -a -q`
+  321  docker ps -a
+  322  docker images
+  324  docker
+  326  docker images
+  327  docker run -it --dns=8.8.8.8 --name="mycontainer" ubunut:latest /bin/bash
+  328  docker run -it --dns=8.8.8.8 --name="mycontainer" ubuntu:latest /bin/bash
+  329  docker ps
+  330  docker ps -a
+  332  docker run -it --dns=8.8.8.8 --dns-search="mydomain.local" --name="mycontains2" ubuntu:latest /bin/bash
+  334  docker images
+  336  docker run -it --dns=8.8.8.8 --dns-name="mydomain.local" --name="mycontainer3" -v /local_vol -v /d/PK/projects/Docker_Dev:/remote_vol ubuntu:latest /bin/bash
+  337  docker run -it --dns=8.8.8.8 --dns-search="mydomain.local" --name="mycontainer3" -v /local_vol -v /d/PK/projects/Docker_Dev:/remote_vol ubuntu:latest /bin/bash
+  338  history|grep docker > docker_imp_cmd.txt 
