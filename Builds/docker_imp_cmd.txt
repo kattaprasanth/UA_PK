@@ -1,0 +1,143 @@
+   15  docker ps
+   16  docker ps -a
+   17  docker restart PK
+   18  docker ps
+   20  docker ps
+   21  docker exec PK /bin/ps
+   22  docker exec PK /bin/ps -aux
+   23  docker exec PK /bin/top
+   24  docker top PK
+   26  docker top PK
+   27  docker exec -i -t PK /bin/bash
+   28  docker ps
+   30  docker exec -it PK /bin/bash
+   32  docker ps
+   33  docker stop PK
+   34  docker ps
+   36  docker images
+   38  docker ps -a
+   39  docker rm artifactory f55c2ced76e9
+   40  docker ps -a
+   41  docker ps -a -q
+   43  docker ps -a -q|wc -l
+   45  docker ps -a
+   47  docker start PK
+   48  docker ps
+   49  docker exec -it PK /bin/cat /etc/profile
+   51  odocker ps
+   52  docker ps
+   53  docker rm -f PK
+   54  docker ps
+   55  docker ps -a
+   56  docker ps -a -q |wc -l
+   58  docker rm `docker ps -a -q`
+   59  docker ps -a
+   61  docker images
+   62  docker run -it ubuntu:xenial /bin/bash
+   65  docker ps
+   66  docker ps -a
+   68  docker ps
+   69  docker ps -a
+   71  docker images
+   72  docker run -itd nginx:latest
+   73  docker ps
+   74  docker ps
+   76  docker ps -a
+   77  docker inspect amazing_raman
+   79  docker ps
+   80  docker stop amazing_raman
+   81  docker run -itd -p 80 nginx:latest
+   82  docker ps
+   83  docker run --help
+   85  docker ps
+   86  docker ps
+   87  docker stop dazzling_kalam
+   88  docker run -itd -p 8080:80 nginx:latest
+   89  docker ps
+   90  docker run -itd -P nginx:latest
+   91  docker ps
+   93  docker ps
+   94  docker run -itd -p 127.0.0.1:8081:80 nginx:latest
+   95  docker ps
+   96  docker stop `docker ps -a -q`
+   97  docker ps
+   98  docker ps -a
+  100  docker ps
+  101  docker ps -a
+  102  docker rename amazing_raman amazingrename
+  103  docker ps -a
+  105  docker run -itd ubunut:xenial /bin/bash
+  106  docker run -itd ubuntu:xenial /bin/bash
+  107  docker ps
+  108  docker run -itd --name "mycname" ubuntu:xenial /bin/bash
+  109  docker ps
+  111  docker ps
+  112  docker rename mycname myccname
+  113  docker ps
+  114  docker rename f4394898e622 opt
+  115  docker ps 
+  117  docker ps
+  118  docker stop `docker ps -a -q`
+  119  docker ps
+  121  docker ps -a
+  123  docker ps
+  125  docker images
+  127  docker events
+  128  docker run -itd --name evn1 ubuntu:latest /bin/bash
+  129  docker ps
+  130  docker exec -it env1 /bin/bash
+  131  docker exec -it evn1 /bin/bash
+  133  docker ps
+  134  docker stop evn1
+  135  docker ps
+  137  docker run -itd --name evn2 ubuntu:latest /bin/bash
+  138  docker ps
+  139  docker attach evn2
+  141  docker run -itd --name env3 ubuntu:latest /bin/bash
+  144  docker ps -a
+  146  docker ps
+  147  docker kill env3
+  151  docker images
+  152  docker rmi 52fc91577703
+  153  docker images
+  155  docker images
+  156  docker rmi ubuntu:latest
+  157  docker ps -a
+  161  docker images
+  162  docker ps -a
+  164  docker images
+  165  docker rmi ubuntu:xenial
+  166  docker ps -a
+  167  docker rm opt myccname
+  168  docker ps -a
+  170  docker images
+  171  docker rmi ubuntu:xenial
+  172  docker ps -a
+  173  docker rm env1 env2 env3
+  174  docker rm env3 evn2 evn1
+  175  docker ps -a
+  177  docker images
+  178  docker rmi ubuntu:xenial
+  180  docker images
+  181  docker pull ubuntu:latest
+  182  docker pull ubuntu:xenial
+  184  docker images
+  191  docker images
+  192  docker ps -a
+  194  docker images
+  195  docker save --output centos.latest.tar
+  196  docker save --help
+  198  docker images
+  199  docker save --output centos:latest centos.latest.tar
+  201  docker save centos:latest --output centos.latest.tar
+  205  docker images
+  213  docker images
+  214  docker rmi centos:latest
+  216  docker images
+  218  docker laod --input centos.latest.tar.gz 
+  220  docker laod --help
+  222  docker load --input centos.latest.tar.gz 
+  223  docker images
+  229  history|grep docker
+  235  touch docker_imp_cmd.txt
+  236  history|grep docker > docker_imp_cmd.txt 
