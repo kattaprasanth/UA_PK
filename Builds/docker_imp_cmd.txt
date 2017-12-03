@@ -141,3 +141,46 @@
   229  history|grep docker
   235  touch docker_imp_cmd.txt
   236  history|grep docker > docker_imp_cmd.txt 
+  237  cat docker_imp_cmd.txt 
+  240  git commit -m "docker changes"
+  242  docker push
+  245  docker images
+  247  docker images
+  248  docker history ubuntu:latest
+  249  docker history ubuntu:latest --no-trunc
+  251  docker history ubuntu:latest
+  252  docker history nginx:latest
+  253  docker images
+  255  docker history --quite nginx:latest
+  256  docker history --quiet 
+  257  docker history --help
+  258  docker history --quiet nginx:latest
+  261  history|grep docker > docker_imp_cmd.txt 
+  263  docker images
+  264  docker tag centos:latest  centos_pk:v1
+  265  docker images
+  267  history|grep docker > docker_imp_cmd.txt 
+  268  docker images
+  269  docker login
+  270  docker login
+  275  docker images
+  276  docker tag centos:latest kattaprasanth:my_centos
+  277  docker images
+  279  docker images
+  280  docker push kattaprasanth/my_centos
+  281  docker push kattaprasanth:my_centos
+  282  docker rmi kattaprasanth:my_centos
+  284  docker images
+  285  docker tag centos:latest kattaprasanth/my_centos
+  286  docker images
+  288  docker login
+  289  docker logout
+  291  docker login
+  292  docker images
+  293  docker push kattaprasanth/my_centos
+  295  docker images
+  296  docker rmi kattaprasanth/my_centos:latest
+  301  docker images
+  302  docker pull kattaprasanth/my_centos
+  303  docker images
+  305  history|grep docker > docker_imp_cmd.txt 
