@@ -207,3 +207,128 @@
   336  docker run -it --dns=8.8.8.8 --dns-name="mydomain.local" --name="mycontainer3" -v /local_vol -v /d/PK/projects/Docker_Dev:/remote_vol ubuntu:latest /bin/bash
   337  docker run -it --dns=8.8.8.8 --dns-search="mydomain.local" --name="mycontainer3" -v /local_vol -v /d/PK/projects/Docker_Dev:/remote_vol ubuntu:latest /bin/bash
   338  history|grep docker > docker_imp_cmd.txt 
+  340  git commit -m "docker"
+  343  docker images
+  344  docker images --help
+  345  docker images --filter --help
+  346  man docker_images
+  347  man docker-images
+  349  docker images
+  351  docker images --help
+  353  docker images
+  354  docker images --filetr tag=v1
+  355  docker images --filter tag=v1
+  356  docker images --filter name=centos
+  358  docker images
+  359  docker rmi mycustoming/withservice centos7/entrypoint centos7/entrypoint centos/nonroot pk/ubuntusshdonly
+  361  docker rmi 173b2e2062b6 b32e159deefe e063031f77b7 eaf2635316fa d0f4104d606b 126c309fa001 e12dbe545426 5f787ee9955d 3fa822599e10 9e7424e5dbae 20c44cd7596f
+  363  docker images
+  364  docker ps -a
+  365  docker rm `docker ps -a -q`
+  367  docker rmi 173b2e2062b6 b32e159deefe e063031f77b7 eaf2635316fa d0f4104d606b 126c309fa001 e12dbe545426 5f787ee9955d 3fa822599e10 9e7424e5dbae 20c44cd7596f
+  368  docker images
+  369  docker rmi 6fbc4d3696f8       
+  371  docker images
+  372  docker rmi 3fa822599e10 
+  373  docker rmi centos:latest
+  374  docker rmi centos_pk:v1
+  376  docker images
+  377  docker rmi ubuntu:latest
+  378  docker rmi ubuntu:xenial
+  380  docker images
+  381  docker rmi kattaprasanth/my_centos:latest
+  382  docker rmi 72f46cda5d9f
+  384  docker images
+  386  docker images
+  387  docker pull centos:latest
+  388  docker images
+  390  docker images
+  391  docker rum -it centos:latest /bin/bash
+  393  docker images
+  394  docker run -it centos:latest /bin/bash
+  395  docker images
+  396  docker rmi centos:latest
+  397  docker ps -a
+  398  docker rm romantic_payne
+  399  docker rmi centos:latest
+  401  docker images
+  402  docker pull centos:centos6
+  403  docker images
+  405  docker run -it centos:centos6 /bin/bash
+  406  docker ps
+  407  docker ps -a
+  408  docker commit gallant_austin centos:baseweb
+  410  docker images
+  411  docker run -it centos:baseweb /bin/bash
+  413  docker images
+  414  docker rmu centos:baseweb
+  415  docker rmi centos:baseweb
+  416  docker ps
+  417  docker ps -a
+  418  docker rm gallant_austin gallant_cary
+  419  docker ps
+  421  docker ps 0a
+  422  docker ps -a
+  423  docker rm gallant_cray
+  425  docker images
+  426  docker rmi centos:baseweb
+  428  docker images
+  429  docker start 01a6e4dbbc74
+  430  docker ps
+  431  docker ps -a
+  433  docker start gallant_austin
+  435  docker images
+  436  docker ps 
+  437  docker ps -a
+  439  docker images
+  440  docker run -it centos:centos6 /bin/bash
+  441  docker images
+  442  docker ps
+  443  docker ps -a
+  444  docker commit e689d579173e centos6:baseweb
+  445  docker images
+  446  docker run -it centos6:baseweb /bin/bash
+  448  docker images
+  449  docker ps -a
+  450  docker rmi centos6:baseweb
+  451  docker rm 1230407dccad
+  452  docker rmi centos6:baseweb
+  454  docker ps
+  455  docker ps -a
+  456  docker images
+  457  docker start e689d579173e
+  458  docker attach e689d579173e
+  459  docker ps -a
+  460  docker commit e689d579173e centos6:baseweb
+  462  docker images
+  463  docker run -it centos:baseweb /bin/bash
+  465  docker images
+  466  docker run -it centos6:baseweb /bin/bash
+  467  docker ps -a
+  469  docker images
+  470  ls /d/docker
+  471  ls /d/dockerwww/
+  473  docker images
+  474  docker run --name "webtest" centos6:baseweb /bin/bash
+  475  docker ps -a
+  476  docker ps
+  478  docker run --name "webtest" -it centos6:baseweb /bin/bash
+  479  docker ps -a
+  480  docker rm webtest
+  482  docker run --name "webtest" -it centos6:baseweb /bin/bash
+  484  docker ps
+  485  docker ps -a
+  486  docker rm webtest
+  488  docker images
+  489  docker run -it --name webtest -v /d/dockerwww:/var/www/html centos6:baseweb /bin/bash
+  490  docker ps -a
+  491  docker rm webtest
+  492  docker run -it --name webtest -v /d/dockerwww:/var/www/html centos6:baseweb /bin/bash -p
+  493  docker ps
+  494  docker ps -a
+  495  docker rm webtest
+  497  docker run -it --name webtest -v /d/dockerwww:/var/www/html centos6:baseweb /bin/bash -p 80
+  498  docker run -it --name webtest -p 80 -v /d/dockerwww:/var/www/html centos6:baseweb /bin/bash
+  499  docker rm webtest
+  500  docker run -it --name webtest -p 80 -v /d/dockerwww:/var/www/html centos6:baseweb /bin/bash
+  502  history|grep docker > docker_imp_cmd.txt 
