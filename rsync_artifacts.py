@@ -1,9 +1,9 @@
 from artifactory import ArtifactoryPath
 
-source_repo = "http://35.187.251.202:8081/artifactory/PrasanthKatta"
-destination_repo = "http://35.187.251.202:8081/artifactory/Maven_Project_1"
-source_auth = ('test', 'test123')
-destination_auth = ('test', 'test123')
+source_repo = "http://31.18.25.20:8081/artifactory/PrasanthKatta"
+destination_repo = "http://35.17.25.22:8081/artifactory/Maven_Project_1"
+source_auth = ('a', 'b')
+destination_auth = ('a', 'b')
 
 connect_source = ArtifactoryPath(source_repo,
                                  auth=source_auth)
